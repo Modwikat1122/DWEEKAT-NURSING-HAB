@@ -1,104 +1,118 @@
 <!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>BLS – Basic Life Support | Dweekat Nursing Hub</title>
-    <meta name="description" content="تعلم مهارات الإنعاش القلبي الرئوي الأساسي BLS مع فيديو تعليمي وملفات PDF جاهزة">
-    
-    <!-- Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;600;700;800&display=swap" rel="stylesheet">
-    
-    <!-- Font Awesome -->
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@6.4.0/css/all.min.css">
-    
-    <!-- Stylesheet -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>BLS – Basic Life Support | DWEEKAT Nursing Hub</title>
 
-    <link rel="icon" href="https://bozfzygezpiautkrzdjt.supabase.co/storage/v1/object/public/lo/Blue%20and%20White%20Illustrative%20Doctor%20Health%20Care%20Logo.png" type="image/png">
+  <!-- نفس ملفات الصفحة الرئيسية -->
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;600;700;800&display=swap" rel="stylesheet">
 </head>
+
 <body>
 
-    <!-- Header -->
-    <header class="header">
-        <div class="container">
-            <div class="header-content">
-                <div class="logo">
-                    <i class="fas fa-heartbeat"></i>
-                    <span>Dweekat Nursing Hub</span>
-                </div>
-                <nav class="nav">
-                    <ul>
-                        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
-                        <li><a href="index.html#topics" class="nav-link">المواضيع</a></li>
-                        <li><a href="#about" class="nav-link">عن التمريض</a></li>
-                        <li><a href="#contact" class="nav-link">تواصل معنا</a></li>
-                    </ul>
-                </nav>
-            </div>
+<!-- ================= HEADER ================= -->
+<header class="header">
+  <div class="container header-content">
+    <div class="logo">
+      <i class="fas fa-heartbeat"></i>
+      <span>DWEEKAT Nursing Hub</span>
+    </div>
+
+    <nav class="nav">
+      <ul>
+        <li><a href="index.html" class="nav-link">الرئيسية</a></li>
+        <li><a href="#content" class="nav-link active">BLS</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero" style="padding:140px 0 80px;">
+  <div class="hero-content">
+    <h1 class="hero-title">BLS – Basic Life Support</h1>
+    <p class="hero-description">
+      تعلم مهارات الإنعاش القلبي الرئوي الأساسية لإنقاذ الحياة
+    </p>
+  </div>
+</section>
+
+<!-- ================= CONTENT ================= -->
+<section class="topics" id="content">
+  <div class="container">
+
+    <!-- Video -->
+    <div class="section-header">
+      <h2 class="section-title">الفيديو التعليمي</h2>
+      <p class="section-subtitle">شرح شامل لأساسيات BLS</p>
+    </div>
+
+    <div class="topic-video" style="max-width:900px;margin:auto;">
+      <iframe width="100%" height="450"
+        src="https://www.youtube.com/embed/fjOeJssZX_Q"
+        frameborder="0" allowfullscreen>
+      </iframe>
+    </div>
+
+    <!-- Files -->
+    <div class="section-header" style="margin-top:80px;">
+      <h2 class="section-title">المصادر التعليمية</h2>
+    </div>
+
+    <div class="topic-files" style="justify-content:center;">
+      <a href="PDF_LINK" class="file-btn">
+        <i class="fas fa-file-pdf"></i>
+        تحميل PDF
+      </a>
+      <a href="POSTER_LINK" class="file-btn">
+        <i class="fas fa-image"></i>
+        تحميل Poster
+      </a>
+    </div>
+
+    <!-- Sub Topics -->
+    <div class="section-header" style="margin-top:80px;">
+      <h2 class="section-title">مواضيع BLS</h2>
+    </div>
+
+    <div class="topics-grid">
+
+      <div class="topic-card">
+        <div class="topic-content">
+          <h3>Adult CPR</h3>
+          <p>الإنعاش القلبي الرئوي للبالغين</p>
         </div>
-    </header>
+      </div>
 
-    <!-- Topic Hero -->
-    <section class="topic-hero">
-        <div class="container">
-            <h1>BLS – Basic Life Support</h1>
-            <p>الإنعاش القلبي الرئوي الأساسي - تعلم مهارات إنقاذ الحياة الأساسية خطوة بخطوة.</p>
+      <div class="topic-card">
+        <div class="topic-content">
+          <h3>Pediatric CPR</h3>
+          <p>الإنعاش للأطفال</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Topic Content -->
-    <section class="topic-content">
-        <div class="container">
-
-            <!-- Video -->
-            <div class="topic-video">
-                <iframe src="https://www.youtube.com/embed/fjOeJssZX_Q" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-            </div>
-
-            <!-- Description -->
-            <div class="topic-description">
-                <h2>وصف الموضوع</h2>
-                <p>
-                    تعلم أساسيات الإنعاش القلبي الرئوي (BLS)، يشمل تقييم الحالة، الضغط على الصدر، والتنفس الاصطناعي. مهارة أساسية لجميع الممرضين وطلاب التمريض لضمان سلامة المرضى في حالات الطوارئ.
-                </p>
-            </div>
-
-            <!-- Files -->
-            <div class="topic-files">
-                <h2>ملفات للتحميل</h2>
-                <a href="https://drive.google.com/file/d/1ovUB3VBae0GJ5wdk_7ytAi6ahDBiBqXJ/view?usp=drive_link" class="file-btn" download>
-                    <i class="fas fa-file-pdf"></i> تحميل PDF
-                </a>
-                <a href="https://drive.google.com/file/d/1tc2H-z7IqGUOddpzGvRbmqle5NN18zrS/view?usp=drive_link" class="file-btn" download>
-                    <i class="fas fa-file-powerpoint"></i> POSTER
-                </a>
-            </div>
-
-            <!-- Tips -->
-            <div class="topic-tips">
-                <h2><i class="fas fa-lightbulb"></i> نصائح عملية</h2>
-                <ul>
-                    <li>ابدأ بتقييم الوعي والتنفس.</li>
-                    <li>اتصل بالطوارئ فوراً.</li>
-                    <li>استخدم تقنية الضغط الصحيحة.</li>
-                    <li>تأكد من سلامة البيئة قبل الإنعاش.</li>
-                </ul>
-            </div>
-
-            <!-- Back Button -->
-            <div class="topic-back">
-                <a href="index.html#topics" class="btn btn-primary"><i class="fas fa-arrow-right"></i> العودة إلى المواضيع</a>
-            </div>
+      <div class="topic-card">
+        <div class="topic-content">
+          <h3>AED</h3>
+          <p>استخدام جهاز الصدمات</p>
         </div>
-    </section>
+      </div>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2025 Dweekat Nursing Hub. جميع الحقوق محفوظة.</p>
-        </div>
-    </footer>
+    </div>
+
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="container">
+    <div class="footer-bottom">
+      © 2025 DWEEKAT Nursing Hub
+    </div>
+  </div>
+</footer>
 
 </body>
 </html>
