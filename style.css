@@ -1178,3 +1178,28 @@ img {
     transform: translateY(-3px);
     box-shadow: 0 8px 20px rgba(0,0,0,0.2);
 }
+/* ==========================
+   Search Bar
+   ========================== */
+.search-bar {
+    max-width: 500px;
+    margin: 30px auto;
+    position: relative;
+}
+
+.search-bar input {
+    width: 100%;
+    padding: 12px 40px 12px 15px;
+    font-size: 1rem;
+    border-radius: 50px;
+    border: 1px solid #ccc;
+    outline: none;
+}
+
+.search-bar i {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    color: #0d7377;
+}
