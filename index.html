@@ -17,6 +17,27 @@
 
      <link rel="icon" href="https://bozfzygezpiautkrzdjt.supabase.co/storage/v1/object/public/lo/Blue%20and%20White%20Illustrative%20Doctor%20Health%20Care%20Logo.png" type="image/png">
 </head>
+
+    <script>
+const searchInput = document.getElementById('searchInput');
+const topicCards = document.querySelectorAll('.topic-card');
+
+searchInput.addEventListener('keyup', function() {
+    const filter = searchInput.value.toLowerCase();
+
+    topicCards.forEach(card => {
+        const title = card.querySelector('.topic-title').textContent.toLowerCase();
+        const description = card.querySelector('.topic-description').textContent.toLowerCase();
+
+        if(title.includes(filter) || description.includes(filter)) {
+            card.style.display = 'block';
+        } else {
+            card.style.display = 'none';
+        }
+    });
+});
+</script>
+
 <body>
     <!-- Header -->
     <header class="header" id="header">
