@@ -1144,3 +1144,37 @@ img {
   justify-content: center;
   font-size: 0.9rem;
 }
+.contact-box {
+    text-align: center;
+}
+
+.contact-btn {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 14px;
+    border-radius: 50px;
+    color: #fff;
+    font-size: 16px;
+    text-decoration: none;
+    margin-bottom: 15px;
+    transition: all 0.3s ease;
+}
+
+.contact-btn i {
+    font-size: 20px;
+}
+
+.contact-btn.whatsapp {
+    background: #25D366;
+}
+
+.contact-btn.telegram {
+    background: #0088cc;
+}
+
+.contact-btn:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+}
