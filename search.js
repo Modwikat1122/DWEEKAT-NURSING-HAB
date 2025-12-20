@@ -1,18 +1,19 @@
 // Live search including subtopics
 const searchInput = document.getElementById('searchInput');
-const cards = document.querySelectorAll('#topicsGrid .topic-card');
+const cards = document.querySelectorAll('.topics-grid .topic-card');
 
 searchInput.addEventListener('input', function() {
     const filter = searchInput.value.toLowerCase();
     cards.forEach(card => {
         const title = card.querySelector('.topic-title').textContent.toLowerCase();
         const desc = card.querySelector('.topic-description').textContent.toLowerCase();
-        const subtopics = card.querySelector('.topic-subtopics') 
-            ? card.querySelector('.topic-subtopics').textContent.toLowerCase() 
-            : '';
-        
-        card.style.display = (title.includes(filter) || desc.includes(filter) || subtopics.includes(filter)) 
-            ? '' 
-            : 'none';
+        const subtopicsDiv = card.querySelector('.topic-subtopics');
+        const subtopics = subtopicsDiv ? subtopicsDiv.textContent.toLowerCase() : '';
+
+        if (title.includes(filter) || desc.includes(filter) || subtopics.includes(filter)) {
+            card.style.display = '';
+        } else {
+            card.style.display = 'none';
+        }
     });
 });
