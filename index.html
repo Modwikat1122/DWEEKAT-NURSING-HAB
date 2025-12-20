@@ -18,26 +18,6 @@
      <link rel="icon" href="https://bozfzygezpiautkrzdjt.supabase.co/storage/v1/object/public/lo/Blue%20and%20White%20Illustrative%20Doctor%20Health%20Care%20Logo.png" type="image/png">
 </head>
 
-    <script>
-const searchInput = document.getElementById('searchInput');
-const topicCards = document.querySelectorAll('.topic-card');
-
-searchInput.addEventListener('keyup', function() {
-    const filter = searchInput.value.toLowerCase();
-
-    topicCards.forEach(card => {
-        const title = card.querySelector('.topic-title').textContent.toLowerCase();
-        const description = card.querySelector('.topic-description').textContent.toLowerCase();
-
-        if(title.includes(filter) || description.includes(filter)) {
-            card.style.display = 'block';
-        } else {
-            card.style.display = 'none';
-        }
-    });
-});
-</script>
-
 <body>
     <!-- Header -->
     <header class="header" id="header">
@@ -102,9 +82,36 @@ searchInput.addEventListener('keyup', function() {
 
     
 <div class="search-bar">
-    <input type="text" id="searchInput" placeholder="ابحث عن أي موضوع..." />
-    <i class="fas fa-search"></i>
+  <input type="text" id="searchInput" placeholder="ابحث عن أي موضوع...">
+  <i class="fas fa-search"></i>
 </div>
+
+<div class="topics-grid" id="topicsGrid">
+  <!-- مثال على بطاقة موضوع -->
+  <a href="bls.html" class="topic-card topic-card-link">
+    <div class="topic-content">
+      <h3 class="topic-title">Foundations of Care</h3>
+      <p class="topic-description">كل المهارات الأساسية للعناية بالمريض.</p>
+    </div>
+  </a>
+
+  <a href="fluids.html" class="topic-card topic-card-link">
+    <div class="topic-content">
+      <h3 class="topic-title">Fluids and Electrolytes</h3>
+      <p class="topic-description">دراسة توازن السوائل والأملاح المعدنية في الجسم.</p>
+    </div>
+  </a>
+
+  <a href="acidbase.html" class="topic-card topic-card-link">
+    <div class="topic-content">
+      <h3 class="topic-title">Acid-Base Balance</h3>
+      <p class="topic-description">توازن الأحماض والقواعد في الجسم.</p>
+    </div>
+  </a>
+
+  <!-- ضيف باقي المواضيع بنفس الطريقة -->
+</div>
+>
 
 <!-- Topics Section -->
 <section class="topics" id="topics">
