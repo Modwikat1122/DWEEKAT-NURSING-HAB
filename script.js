@@ -403,3 +403,16 @@ function toggleFLUIDS & ELECTROLYTES PART 1() {
         content.scrollIntoView({ behavior: "smooth" });
     }
 }
+<script>
+function toggleContent(id) {
+  document.querySelectorAll('.topic-details').forEach(el => {
+    el.style.display = 'none';
+  });
+
+  const target = document.getElementById(id);
+  if (target) {
+    target.style.display = 'block';
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+</script>
