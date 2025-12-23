@@ -394,7 +394,7 @@ if ('serviceWorker' in navigator) {
 }
 
 function toggleBLS() {
-    const content = document.getElementById("blsContent");
+    const content = document.getElementById("FLUIDS & ELECTROLYTES PART 1Content");
 
     if (content.style.display === "block") {
         content.style.display = "none";
