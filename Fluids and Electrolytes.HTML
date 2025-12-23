@@ -443,5 +443,21 @@
 
 </style>
 
+<script>
+function toggleContent(id) {
+  // إخفاء كل المحتويات
+  document.querySelectorAll('.bls-content').forEach(content => {
+    content.style.display = 'none';
+  });
+
+  // إظهار المحتوى المطلوب
+  const target = document.getElementById(id);
+  if (target) {
+    target.style.display = 'block';
+    target.scrollIntoView({ behavior: 'smooth' });
+  }
+}
+</script>
+
 </body>
 </html>
