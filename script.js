@@ -393,7 +393,7 @@ if ('serviceWorker' in navigator) {
     });
 }
 
-function toggleBLS() {
+function toggleFLUIDS & ELECTROLYTES PART 1() {
     const content = document.getElementById("FLUIDS & ELECTROLYTES PART 1Content");
 
     if (content.style.display === "block") {
