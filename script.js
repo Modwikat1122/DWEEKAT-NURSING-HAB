@@ -392,3 +392,14 @@ if ('serviceWorker' in navigator) {
         // });
     });
 }
+
+function toggleBLS() {
+    const content = document.getElementById("blsContent");
+
+    if (content.style.display === "block") {
+        content.style.display = "none";
+    } else {
+        content.style.display = "block";
+        content.scrollIntoView({ behavior: "smooth" });
+    }
+}
