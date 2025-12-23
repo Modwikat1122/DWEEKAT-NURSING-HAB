@@ -360,86 +360,36 @@
         </div>
     </footer>
 
-    <!-- Scroll to Top Button -->
-    <button class="scroll-top" id="scrollTop">
-        <i class="fas fa-arrow-up"></i>
-    </button>
-
-    <!-- JavaScript -->
-    <script src="script.js"></script>
-</body>
-</html>
-
-<style>
-/* ===========================
-   تعديلات صفحة BLS
-   =========================== */
-.bls-poster {
-    max-width: 400px;
-    margin: 0 auto 20px;
-    border-radius: 15px;
-    box-shadow: 0 4px 16px rgba(0,0,0,0.15);
-}
-
-.bls-title {
-    font-size: 2rem;
-    color: #0d7377;
-    text-align: center;
-    margin-bottom: 10px;
-}
-
-.bls-description {
-    font-size: 1rem;
-    color: #555;
-    text-align: center;
-    margin-bottom: 20px;
-}
-
-.bls-download-btn {
-    background: linear-gradient(135deg, #0d7377 0%, #14a085 100%);
-    color: #fff;
-    padding: 12px 25px;
-    border-radius: 50px;
-    text-decoration: none;
-    display: inline-block;
-    transition: all 0.3s ease;
-    margin-bottom: 30px;
-}
-
-.bls-download-btn:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+   
 }
 /* ===== Single Card Layout ===== */
 .single-card {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
-    justify-content: center;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 300px));
+  justify-content: center;
+  gap: 30px;
 }
 
-/* خلي الكارد مربع */
-.FLUIDS & ELECTROLYTES PART 1-card {
-    max-width: 300px;
-    aspect-ratio: 1 / 1;
+/* الكارد مربع */
+.fluids-card {
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
 }
 
-/* الصورة داخل الكارد */
-.FLUIDS & ELECTROLYTES PART 1-card .topic-poster img {
-    height: 180px;
-    object-fit: cover;
-}
-.FLUIDS & ELECTROLYTES PART 1-content {
+/* محتوى الفيديو */
+.topic-details {
   display: none;
   margin-top: 60px;
 }
+
 
 </style>
 
 <script>
 function toggleContent(id) {
   // إخفاء كل المحتويات
-  document.querySelectorAll('.bls-content').forEach(content => {
-    content.style.display = 'none';
+  document.querySelectorAll('.topic-details').forEach(el => {
+    el.style.display = 'none';
   });
 
   // إظهار المحتوى المطلوب
@@ -450,6 +400,7 @@ function toggleContent(id) {
   }
 }
 </script>
+
 
 </body>
 </html>
