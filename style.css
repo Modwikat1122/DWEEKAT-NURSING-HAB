@@ -1246,3 +1246,12 @@ img {
 .bls-download-btn:hover {
     background: #084298;
 }
+.topic-details {
+  display: none;
+  margin-top: 60px;
+}
+
+.fluids-card {
+  max-width: 300px;
+  aspect-ratio: 1 / 1;
+}
