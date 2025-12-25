@@ -487,6 +487,36 @@
 
 </style>
 
+<!-- QUIZ OVERLAY -->
+<div id="quizOverlay" class="quiz-overlay">
+
+  <div class="quiz-modal">
+    <span class="quiz-close" onclick="closeQuiz()">✕</span>
+
+    <h2>NCLIX QUIZ – Fluids & Electrolytes</h2>
+
+    <div class="quiz-card">
+      <h3 class="quiz-question">
+        Which electrolyte primarily regulates fluid balance?
+      </h3>
+
+      <ul class="quiz-options">
+        <li onclick="checkAnswer(this, false)">Potassium</li>
+        <li onclick="checkAnswer(this, true)">Sodium</li>
+        <li onclick="checkAnswer(this, false)">Calcium</li>
+        <li onclick="checkAnswer(this, false)">Magnesium</li>
+      </ul>
+
+      <div class="quiz-rationale">
+        <strong>Rationale:</strong><br>
+        Sodium is the primary extracellular electrolyte responsible
+        for regulating fluid balance and osmolality.
+      </div>
+    </div>
+  </div>
+
+</div>
+
 <script>
 function toggleContent(id) {
   const target = document.getElementById(id);
@@ -536,38 +566,6 @@ function checkAnswer(selected, isCorrect) {
   rationale.style.display = 'block';
 }
 </script>
-
-
-
-<!-- QUIZ OVERLAY -->
-<div id="quizOverlay" class="quiz-overlay">
-
-  <div class="quiz-modal">
-    <span class="quiz-close" onclick="closeQuiz()">✕</span>
-
-    <h2>NCLIX QUIZ – Fluids & Electrolytes</h2>
-
-    <div class="quiz-card">
-      <h3 class="quiz-question">
-        Which electrolyte primarily regulates fluid balance?
-      </h3>
-
-      <ul class="quiz-options">
-        <li onclick="checkAnswer(this, false)">Potassium</li>
-        <li onclick="checkAnswer(this, true)">Sodium</li>
-        <li onclick="checkAnswer(this, false)">Calcium</li>
-        <li onclick="checkAnswer(this, false)">Magnesium</li>
-      </ul>
-
-      <div class="quiz-rationale">
-        <strong>Rationale:</strong><br>
-        Sodium is the primary extracellular electrolyte responsible
-        for regulating fluid balance and osmolality.
-      </div>
-    </div>
-  </div>
-
-</div>
 
 </body>
 </html>
