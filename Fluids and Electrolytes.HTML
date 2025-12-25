@@ -522,20 +522,17 @@ function toggleContent(id) {
   const target = document.getElementById(id);
   if (!target) return;
 
-  // إذا كان مفتوح بالفعل، أغلقه
   if (target.style.display === 'block') {
     target.style.display = 'none';
   } else {
-    // أولاً إخفاء كل المحتويات الأخرى
     document.querySelectorAll('.topic-details').forEach(el => {
       el.style.display = 'none';
     });
-    // ثم إظهار المحتوى الحالي
     target.style.display = 'block';
     target.scrollIntoView({ behavior: 'smooth' });
   }
 }
-<script>
+
 function openQuiz() {
   document.getElementById('quizOverlay').style.display = 'flex';
 }
@@ -566,6 +563,7 @@ function checkAnswer(selected, isCorrect) {
   rationale.style.display = 'block';
 }
 </script>
+
 
 </body>
 </html>
