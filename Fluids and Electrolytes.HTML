@@ -536,30 +536,28 @@ function toggleContent(id) {
   }
 }
 
-// بيانات الأسئلة
 const quizData = [
   {
     question: "Which electrolyte primarily regulates fluid balance?",
     options: ["Potassium", "Sodium", "Calcium", "Magnesium"],
     answer: 1,
-    rationale: "Sodium is the primary extracellular electrolyte responsible for regulating fluid balance."
+    rationale: "Sodium regulates fluid balance."
   },
   {
     question: "Which electrolyte is key for muscle contraction?",
     options: ["Potassium", "Sodium", "Calcium", "Magnesium"],
     answer: 2,
-    rationale: "Calcium is essential for muscle contraction and nerve signaling."
+    rationale: "Calcium is essential for muscle contraction."
   },
-  // أضف باقي الأسئلة هنا بنفس الشكل
 ];
 
 let currentQuestion = 0;
-let score = 0;
+let userAnswers = [];
 
 function openQuiz() {
   document.getElementById('quizOverlay').style.display = 'flex';
   currentQuestion = 0;
-  score = 0;
+  userAnswers = [];
   showQuestion();
 }
 
@@ -567,55 +565,70 @@ function closeQuiz() {
   document.getElementById('quizOverlay').style.display = 'none';
 }
 
-// عرض السؤال الحالي
 function showQuestion() {
   const q = quizData[currentQuestion];
   const container = document.getElementById('quizContent');
   container.innerHTML = `
     <h3>${q.question}</h3>
     <ul class="quiz-options">
-      ${q.options.map((opt,i) => `<li onclick="selectAnswer(this, ${i})">${opt}</li>`).join('')}
+      ${q.options.map((opt,i) => `<li onclick="selectAnswer(${i})">${opt}</li>`).join('')}
     </ul>
-    <div class="quiz-rationale"></div>
     <div class="quiz-buttons">
       <button onclick="prevQuestion()" ${currentQuestion===0?'disabled':''}>Previous</button>
-      <button onclick="nextQuestion()" ${currentQuestion===quizData.length-1?'disabled':''}>Next</button>
+      <button onclick="nextQuestion()">Next</button>
     </div>
   `;
 }
 
-// اختيار الإجابة
-function selectAnswer(el, index) {
-  const q = quizData[currentQuestion];
+function selectAnswer(index) {
+  userAnswers[currentQuestion] = index;
   const options = document.querySelectorAll('.quiz-options li');
-  options.forEach((opt,i)=>{
-    opt.style.pointerEvents='none';
-    if(i===q.answer) opt.classList.add('correct');
-  });
-  if(index===q.answer) { el.classList.add('correct'); score++; }
-  else { el.classList.add('wrong'); }
-  document.querySelector('.quiz-rationale').style.display='block';
-  document.querySelector('.quiz-rationale').innerHTML = `<strong>Rationale:</strong> ${q.rationale}`;
+  options.forEach(opt => opt.style.pointerEvents='none'); // يمنع إعادة الضغط
 }
 
-// تنقل بين الأسئلة
 function nextQuestion() {
-  if(currentQuestion < quizData.length-1){ currentQuestion++; showQuestion(); }
-  else showResult();
+  if(currentQuestion < quizData.length - 1){
+    currentQuestion++;
+    showQuestion();
+  } else {
+    showResults();
+  }
 }
 
 function prevQuestion() {
-  if(currentQuestion>0){ currentQuestion--; showQuestion(); }
+  if(currentQuestion > 0){
+    currentQuestion--;
+    showQuestion();
+  }
 }
 
-// عرض النتيجة
-function showResult() {
+function showResults() {
   const container = document.getElementById('quizContent');
-  container.innerHTML = `
-    <h3>Quiz Finished!</h3>
-    <p>Your score: ${score} / ${quizData.length}</p>
-    <button onclick="openQuiz()">Retry Quiz</button>
-  `;
+  let score = 0;
+  let html = '<h3>Quiz Finished!</h3>';
+
+  quizData.forEach((q,i)=>{
+    const user = userAnswers[i];
+    const correct = q.answer;
+    if(user === correct) score++;
+    html += `<div style="text-align:left; margin:15px 0; padding:10px; border:1px solid #fff; border-radius:8px;">
+      <p><strong>Q${i+1}:</strong> ${q.question}</p>
+      <ul>`;
+    q.options.forEach((opt,j)=>{
+      let cls='';
+      if(j===correct) cls='correct';
+      else if(j===user) cls='wrong';
+      html += `<li class="${cls}">${opt}</li>`;
+    });
+    html += `</ul>
+      <p><strong>Rationale:</strong> ${q.rationale}</p>
+    </div>`;
+  });
+
+  html += `<h4>Your score: ${score} / ${quizData.length}</h4>
+           <button onclick="openQuiz()">Retry Quiz</button>`;
+
+  container.innerHTML = html;
 }
 </script>
 
