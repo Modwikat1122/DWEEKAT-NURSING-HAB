@@ -1356,18 +1356,21 @@ img {
   display: flex;
   justify-content: center;
   align-items: center;
-  z-index: 9999;
+  z-index: 1000;
+  overflow: auto; /* مهم للتمرير إذا الشاشة صغيرة */
 }
 
 .quiz-modal {
-  background: linear-gradient(135deg, #6a11cb, #2575fc); /* خلفية ملونة */
-  color: #fff;
-  padding: 30px;
-  max-width: 700px;
+  background: #fff;
+  padding: 20px;
+  max-width: 800px;
   width: 90%;
-  border-radius: 12px;
-  text-align: center;
-  position: relative;
+  max-height: 90vh; /* ارتفاع أقصى بالنسبة للشاشة */
+  overflow-y: auto; /* التمرير العمودي */
+  border-radius: 10px;
+  box-shadow: 0 0 10px rgba(0,0,0,0.5);
+  direction: rtl;
+  text-align: right;
 }
 
 .quiz-close {
