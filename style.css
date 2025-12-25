@@ -1299,53 +1299,7 @@ img {
   transform: scale(0.96);
 }
 
-.quiz-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.7);
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-}
-
-.quiz-modal {
-  background: #fff;
-  padding: 30px;
-  max-width: 600px;
-  width: 90%;
-  border-radius: 12px;
-  text-align: center;
-  position: relative;
-}
-
-.quiz-close {
-  position: absolute;
-  top: 15px;
-  right: 15px;
-  cursor: pointer;
-  font-size: 24px;
-}
-
-.quiz-options li {
-  list-style: none;
-  margin: 10px 0;
-  padding: 12px;
-  border: 1px solid #ccc;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.2s;
-}
-
-.quiz-options li.correct { background: #4CAF50; color: #fff; }
-.quiz-options li.wrong { background: #F44336; color: #fff; }
-.quiz-options li:hover { background: #eee; }
-.quiz-rationale { display:none; margin-top:10px; text-align:left; }
-.quiz-buttons { margin-top: 20px; display: flex; justify-content: space-between; }
-
+/* ===== QUIZ OVERLAY ===== */
 .quiz-overlay {
   position: fixed;
   top: 0;
@@ -1357,72 +1311,35 @@ img {
   justify-content: center;
   align-items: center;
   z-index: 1000;
-  overflow: auto; /* مهم للتمرير إذا الشاشة صغيرة */
+  overflow: auto;
 }
 
+/* ===== QUIZ MODAL ===== */
 .quiz-modal {
-  background: #fff;
-  padding: 20px;
+  background: linear-gradient(135deg, #6a11cb, #2575fc); /* لون ملون */
+  color: #fff;
+  padding: 25px 30px;
+  border-radius: 12px;
   max-width: 800px;
   width: 90%;
-  max-height: 90vh; /* ارتفاع أقصى بالنسبة للشاشة */
-  overflow-y: auto; /* التمرير العمودي */
-  border-radius: 10px;
-  box-shadow: 0 0 10px rgba(0,0,0,0.5);
-  direction: rtl;
-  text-align: right;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.4);
+  position: relative;
+  transition: all 0.3s;
 }
 
+/* ===== CLOSE BUTTON ===== */
 .quiz-close {
   position: absolute;
   top: 15px;
-  right: 15px;
-  cursor: pointer;
+  right: 20px;
   font-size: 24px;
+  cursor: pointer;
   color: #fff;
 }
 
-.quiz-options li {
-  list-style: none;
-  margin: 10px 0;
-  padding: 12px;
-  border: 1px solid #fff;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: 0.3s;
-}
-
-.quiz-options li:hover {
-  background: rgba(255,255,255,0.2);
-}
-
-.quiz-options li.correct { background: #4CAF50; color: #fff; }
-.quiz-options li.wrong { background: #F44336; color: #fff; }
-
-.quiz-buttons {
-  margin-top: 20px;
-  display: flex;
-  justify-content: space-between;
-}
-
-.quiz-buttons button {
-  padding: 10px 20px;
-  border: none;
-  border-radius: 8px;
-  cursor: pointer;
-  font-weight: bold;
-  color: #fff;
-  background-color: rgba(0,0,0,0.3);
-  transition: 0.3s;
-}
-
-.quiz-buttons button:hover {
-  background-color: rgba(0,0,0,0.6);
-}
-
-.quiz-buttons button:active {
-  transform: scale(0.95);
-}
+/* ===== QUIZ OPTIONS ===== */
 .quiz-options {
   list-style: none;
   padding: 0;
@@ -1430,39 +1347,53 @@ img {
 }
 
 .quiz-options li {
-  background: #f1f1f1;
-  margin-bottom: 10px;
-  padding: 10px 15px;
-  border-radius: 6px;
+  margin: 10px 0;
+  padding: 12px 15px;
+  border-radius: 8px;
   cursor: pointer;
-  transition: background 0.3s, color 0.3s;
+  border: 1px solid rgba(255,255,255,0.4);
+  transition: all 0.3s;
+  background: rgba(255,255,255,0.1);
+  color: #fff;
 }
 
 .quiz-options li:hover {
-  background: #dcefff;
+  background: rgba(255,255,255,0.3);
+  transform: translateY(-2px);
 }
 
 .quiz-options li.correct {
-  background: #4caf50 !important; /* أخضر للإجابة الصحيحة */
-  color: #fff;
+  background: #4CAF50 !important;
+  color: #fff !important;
 }
 
 .quiz-options li.wrong {
-  background: #f44336 !important; /* أحمر للإجابة الخاطئة */
-  color: #fff;
+  background: #F44336 !important;
+  color: #fff !important;
+}
+
+/* ===== BUTTONS ===== */
+.quiz-buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 20px;
 }
 
 .quiz-buttons button {
-  padding: 8px 15px;
-  margin: 5px;
+  padding: 10px 20px;
   border: none;
-  border-radius: 6px;
-  background: #007bff;
-  color: #fff;
+  border-radius: 8px;
+  font-weight: bold;
   cursor: pointer;
-  transition: background 0.3s;
+  color: #fff;
+  background: rgba(0,0,0,0.3);
+  transition: all 0.3s;
 }
 
 .quiz-buttons button:hover {
-  background: #0056b3;
+  background: rgba(0,0,0,0.6);
+}
+
+.quiz-buttons button:active {
+  transform: scale(0.95);
 }
