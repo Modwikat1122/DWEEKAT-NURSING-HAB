@@ -40,35 +40,9 @@
     </p>
 
  <!-- زر الامتحان -->
-    <a href="#quiz" class="hero-quiz-btn">
-      NCLIX QUIZ
+    <a class="hero-quiz-btn" onclick="openQuiz()">
+     NCLIX QUIZ
     </a>
-  </div>
-</section>
-
-<!-- QUIZ SECTION -->
-<section id="quiz" class="quiz-section">
-  <div class="container">
-    <h2 class="section-title">NCLIX QUIZ – Fluids & Electrolytes</h2>
-
-    <div class="quiz-card">
-      <h3 class="quiz-question">
-        Which electrolyte primarily regulates fluid balance?
-      </h3>
-
-      <ul class="quiz-options">
-        <li onclick="checkAnswer(this, false)">Potassium</li>
-        <li onclick="checkAnswer(this, true)">Sodium</li>
-        <li onclick="checkAnswer(this, false)">Calcium</li>
-        <li onclick="checkAnswer(this, false)">Magnesium</li>
-      </ul>
-
-      <div class="quiz-rationale">
-        <strong>Rationale:</strong>
-        Sodium is the main extracellular electrolyte responsible
-        for fluid balance and osmolality.
-      </div>
-    </div>
   </div>
 </section>
 
@@ -531,12 +505,20 @@ function toggleContent(id) {
     target.scrollIntoView({ behavior: 'smooth' });
   }
 }
-</script>
 <script>
+function openQuiz() {
+  document.getElementById('quizOverlay').style.display = 'flex';
+}
+
+function closeQuiz() {
+  document.getElementById('quizOverlay').style.display = 'none';
+}
+
 function checkAnswer(selected, isCorrect) {
   const options = selected.parentElement.children;
-  const rationale = selected.closest('.quiz-card')
-                            .querySelector('.quiz-rationale');
+  const rationale = selected
+    .closest('.quiz-card')
+    .querySelector('.quiz-rationale');
 
   for (let option of options) {
     option.onclick = null;
@@ -555,6 +537,37 @@ function checkAnswer(selected, isCorrect) {
 }
 </script>
 
+
+
+<!-- QUIZ OVERLAY -->
+<div id="quizOverlay" class="quiz-overlay">
+
+  <div class="quiz-modal">
+    <span class="quiz-close" onclick="closeQuiz()">✕</span>
+
+    <h2>NCLIX QUIZ – Fluids & Electrolytes</h2>
+
+    <div class="quiz-card">
+      <h3 class="quiz-question">
+        Which electrolyte primarily regulates fluid balance?
+      </h3>
+
+      <ul class="quiz-options">
+        <li onclick="checkAnswer(this, false)">Potassium</li>
+        <li onclick="checkAnswer(this, true)">Sodium</li>
+        <li onclick="checkAnswer(this, false)">Calcium</li>
+        <li onclick="checkAnswer(this, false)">Magnesium</li>
+      </ul>
+
+      <div class="quiz-rationale">
+        <strong>Rationale:</strong><br>
+        Sodium is the primary extracellular electrolyte responsible
+        for regulating fluid balance and osmolality.
+      </div>
+    </div>
+  </div>
+
+</div>
 
 </body>
 </html>
