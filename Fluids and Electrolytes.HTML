@@ -40,11 +40,18 @@
     </p>
 
  <!-- زر الامتحان -->
-    <a class="hero-quiz-btn" onclick="toggleQuiz()">
-     NCLIX QUIZ
-   </a>
+    <a class="hero-quiz-btn" onclick="openQuiz()">NCLIX QUIZ</a>
   </div>
 </section>
+
+<!-- NCLEX Quiz Overlay -->
+<div id="quizOverlay" class="quiz-overlay" style="display:none;">
+  <div class="quiz-modal">
+    <span class="quiz-close" onclick="closeQuiz()">✕</span>
+    <h2>NCLIX QUIZ – Fluids & Electrolytes</h2>
+    <div id="quizContent"></div>
+  </div>
+</div>
 
 <!-- NCLEX Quiz Card -->
 <div id="quizSection" style="display:none;">
@@ -529,30 +536,86 @@ function toggleContent(id) {
   }
 }
 
-function toggleQuiz() {
-  const quiz = document.getElementById("quizSection");
-  quiz.style.display = quiz.style.display === "none" ? "block" : "none";
+// بيانات الأسئلة
+const quizData = [
+  {
+    question: "Which electrolyte primarily regulates fluid balance?",
+    options: ["Potassium", "Sodium", "Calcium", "Magnesium"],
+    answer: 1,
+    rationale: "Sodium is the primary extracellular electrolyte responsible for regulating fluid balance."
+  },
+  {
+    question: "Which electrolyte is key for muscle contraction?",
+    options: ["Potassium", "Sodium", "Calcium", "Magnesium"],
+    answer: 2,
+    rationale: "Calcium is essential for muscle contraction and nerve signaling."
+  },
+  // أضف باقي الأسئلة هنا بنفس الشكل
+];
+
+let currentQuestion = 0;
+let score = 0;
+
+function openQuiz() {
+  document.getElementById('quizOverlay').style.display = 'flex';
+  currentQuestion = 0;
+  score = 0;
+  showQuestion();
 }
 
-function checkAnswer(selected, isCorrect) {
-  const options = selected.parentElement.children;
-  const rationale = selected
-    .closest('.quiz-card')
-    .querySelector('.quiz-rationale');
+function closeQuiz() {
+  document.getElementById('quizOverlay').style.display = 'none';
+}
 
-  for (let option of options) {
-    option.onclick = null;           // يمنع الضغط على نفس الخيار مرة ثانية
-    option.style.pointerEvents = 'none'; // يمنع الضغط على كل الخيارات بعد الحل
-    if (option.dataset.correct === "true") {
-      option.classList.add('correct');   // الخيار الصحيح أخضر
-    }
-  }
+// عرض السؤال الحالي
+function showQuestion() {
+  const q = quizData[currentQuestion];
+  const container = document.getElementById('quizContent');
+  container.innerHTML = `
+    <h3>${q.question}</h3>
+    <ul class="quiz-options">
+      ${q.options.map((opt,i) => `<li onclick="selectAnswer(this, ${i})">${opt}</li>`).join('')}
+    </ul>
+    <div class="quiz-rationale"></div>
+    <div class="quiz-buttons">
+      <button onclick="prevQuestion()" ${currentQuestion===0?'disabled':''}>Previous</button>
+      <button onclick="nextQuestion()" ${currentQuestion===quizData.length-1?'disabled':''}>Next</button>
+    </div>
+  `;
+}
 
-  if (!isCorrect) {
-    selected.classList.add('wrong');     // الخيار الخطأ أحمر
-  }
+// اختيار الإجابة
+function selectAnswer(el, index) {
+  const q = quizData[currentQuestion];
+  const options = document.querySelectorAll('.quiz-options li');
+  options.forEach((opt,i)=>{
+    opt.style.pointerEvents='none';
+    if(i===q.answer) opt.classList.add('correct');
+  });
+  if(index===q.answer) { el.classList.add('correct'); score++; }
+  else { el.classList.add('wrong'); }
+  document.querySelector('.quiz-rationale').style.display='block';
+  document.querySelector('.quiz-rationale').innerHTML = `<strong>Rationale:</strong> ${q.rationale}`;
+}
 
-  rationale.style.display = 'block';     // يظهر الـ rationale
+// تنقل بين الأسئلة
+function nextQuestion() {
+  if(currentQuestion < quizData.length-1){ currentQuestion++; showQuestion(); }
+  else showResult();
+}
+
+function prevQuestion() {
+  if(currentQuestion>0){ currentQuestion--; showQuestion(); }
+}
+
+// عرض النتيجة
+function showResult() {
+  const container = document.getElementById('quizContent');
+  container.innerHTML = `
+    <h3>Quiz Finished!</h3>
+    <p>Your score: ${score} / ${quizData.length}</p>
+    <button onclick="openQuiz()">Retry Quiz</button>
+  `;
 }
 </script>
 
