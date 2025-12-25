@@ -46,6 +46,31 @@
   </div>
 </section>
 
+<!-- NCLEX Quiz Card -->
+<div id="quizSection" style="display:none;">
+  <div class="quiz-card">
+
+    <h2>NCLEX Practice Question</h2>
+    <p>
+      Which electrolyte is the primary determinant of extracellular fluid balance?
+    </p>
+
+    <ul class="quiz-options">
+      <li data-correct="false" onclick="checkAnswer(this, false)">Potassium</li>
+      <li data-correct="true" onclick="checkAnswer(this, true)">Sodium</li>
+      <li data-correct="false" onclick="checkAnswer(this, false)">Calcium</li>
+      <li data-correct="false" onclick="checkAnswer(this, false)">Magnesium</li>
+    </ul>
+
+    <div class="quiz-rationale">
+      <strong>Rationale:</strong><br>
+      Sodium is the major extracellular cation and plays a key role in regulating
+      extracellular fluid volume and osmolality.
+    </div>
+
+  </div>
+</div>
+
 <!-- ================= CONTENT ================= -->
 <section class="topics" id="content">
   <div class="container">
@@ -487,35 +512,6 @@
 
 </style>
 
-<!-- QUIZ OVERLAY -->
-<div id="quizOverlay" class="quiz-overlay">
-
-  <div class="quiz-modal">
-    <span class="quiz-close" onclick="closeQuiz()">✕</span>
-
-    <h2>NCLIX QUIZ – Fluids & Electrolytes</h2>
-
-    <div class="quiz-card">
-      <h3 class="quiz-question">
-        Which electrolyte primarily regulates fluid balance?
-      </h3>
-
-      <ul class="quiz-options">
-        <li onclick="checkAnswer(this, false)">Potassium</li>
-        <li onclick="checkAnswer(this, true)">Sodium</li>
-        <li onclick="checkAnswer(this, false)">Calcium</li>
-        <li onclick="checkAnswer(this, false)">Magnesium</li>
-      </ul>
-
-      <div class="quiz-rationale">
-        <strong>Rationale:</strong><br>
-        Sodium is the primary extracellular electrolyte responsible
-        for regulating fluid balance and osmolality.
-      </div>
-    </div>
-  </div>
-
-</div>
 
 <script>
 function toggleContent(id) {
