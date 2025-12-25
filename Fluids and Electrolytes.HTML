@@ -38,6 +38,37 @@
     <p class="hero-description">
      دراسة توازن السوائل والأملاح المعدنية في الجسم.
     </p>
+
+ <!-- زر الامتحان -->
+    <a href="#quiz" class="hero-quiz-btn">
+      NCLIX QUIZ
+    </a>
+  </div>
+</section>
+
+<!-- QUIZ SECTION -->
+<section id="quiz" class="quiz-section">
+  <div class="container">
+    <h2 class="section-title">NCLIX QUIZ – Fluids & Electrolytes</h2>
+
+    <div class="quiz-card">
+      <h3 class="quiz-question">
+        Which electrolyte primarily regulates fluid balance?
+      </h3>
+
+      <ul class="quiz-options">
+        <li onclick="checkAnswer(this, false)">Potassium</li>
+        <li onclick="checkAnswer(this, true)">Sodium</li>
+        <li onclick="checkAnswer(this, false)">Calcium</li>
+        <li onclick="checkAnswer(this, false)">Magnesium</li>
+      </ul>
+
+      <div class="quiz-rationale">
+        <strong>Rationale:</strong>
+        Sodium is the main extracellular electrolyte responsible
+        for fluid balance and osmolality.
+      </div>
+    </div>
   </div>
 </section>
 
@@ -479,6 +510,7 @@
   display: none;
   margin-top: 60px;
 }
+
 </style>
 
 <script>
@@ -498,6 +530,28 @@ function toggleContent(id) {
     target.style.display = 'block';
     target.scrollIntoView({ behavior: 'smooth' });
   }
+}
+</script>
+<script>
+function checkAnswer(selected, isCorrect) {
+  const options = selected.parentElement.children;
+  const rationale = selected.closest('.quiz-card')
+                            .querySelector('.quiz-rationale');
+
+  for (let option of options) {
+    option.onclick = null;
+    if (option.innerText === "Sodium") {
+      option.classList.add('correct');
+    }
+  }
+
+  if (isCorrect) {
+    selected.classList.add('correct');
+  } else {
+    selected.classList.add('wrong');
+  }
+
+  rationale.style.display = 'block';
 }
 </script>
 
