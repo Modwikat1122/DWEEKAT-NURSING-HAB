@@ -57,7 +57,7 @@
 <div id="quizSection" style="display:none;">
   <div class="quiz-card">
 
-    <h2>NCLEX Practice Question 1 </h2>
+    
     <p>
      The nurse is caring for a client with heart failure. On
      assessment, the nurse notes that the client is dysp
@@ -66,12 +66,12 @@
      note in this client if excess uid volume is present?
     </p>
 
-    <ul class="quiz-options">
+   
       <li data-correct="false" onclick="checkAnswer(this, false)">Weight loss and dry skin</li>
       <li data-correct="true" onclick="checkAnswer(this, false)">Flat neck and hand veins and decreased urinary output</li>
       <li data-correct="false" onclick="checkAnswer(this, true)">An increase in blood pressure and increased respirations</li>
       <li data-correct="false" onclick="checkAnswer(this, false)">Weakness and decreased central venous pressure(CVP) </li>
-    </ul>
+  
 
     <div class="quiz-rationale">
       <strong>Rationale:</strong><br>
@@ -826,16 +826,30 @@ function toggleContent(id) {
 
 const quizData = [
   {
-    question: "Which electrolyte primarily regulates fluid balance?",
-    options: ["Potassium", "Sodium", "Calcium", "Magnesium"],
-    answer: 1,
+    question: "The nurse is caring for a client with heart failure. On
+     assessment, the nurse notes that the client is dysp
+     neic, and crackles are audible on auscultation. What
+     additional manifestations would the nurse expect to
+     note in this client if excess uid volume is present?",
+    options: ["Weight loss and dry skin", "Flat neck and hand veins and decreased urinary output", "An increase in blood pressure and increased respirations", "Weakness and decreased central venous pressure(CVP)"],
+    answer: 3,
     rationale: "Sodium regulates fluid balance."
   },
   {
     question: "Which electrolyte is key for muscle contraction?",
     options: ["Potassium", "Sodium", "Calcium", "Magnesium"],
     answer: 2,
-    rationale: "Calcium is essential for muscle contraction."
+    rationale: " A fluid volume excess is also known as overhydra
+tion or fluid overload and occurs when fluid intake or fluid
+retention exceeds the fluid needs of the body. Assessment
+findings associated with fluid volume excess include cough,
+dyspnea, crackles, tachypnea, tachycardia, elevated blood
+pressure, bounding pulse, elevated CVP, weight gain, edema,
+neck and hand vein distention, altered level of consciousness,
+and decreased hematocrit. Dry skin, flat neck and hand veins,
+decreased urinary output, and decreased CVP are noted in
+fluid volume deficit. Weakness can be present in either fluid
+volume excess or deficit."
   },
 ];
 
