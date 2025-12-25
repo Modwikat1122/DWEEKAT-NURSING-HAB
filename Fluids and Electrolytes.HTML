@@ -529,12 +529,9 @@ function toggleContent(id) {
   }
 }
 
-function openQuiz() {
-  document.getElementById('quizOverlay').style.display = 'flex';
-}
-
-function closeQuiz() {
-  document.getElementById('quizOverlay').style.display = 'none';
+function toggleQuiz() {
+  const quiz = document.getElementById("quizSection");
+  quiz.style.display = quiz.style.display === "none" ? "block" : "none";
 }
 
 function checkAnswer(selected, isCorrect) {
@@ -544,19 +541,18 @@ function checkAnswer(selected, isCorrect) {
     .querySelector('.quiz-rationale');
 
   for (let option of options) {
-    option.onclick = null;
-    if (option.innerText === "Sodium") {
-      option.classList.add('correct');
+    option.onclick = null;           // يمنع الضغط على نفس الخيار مرة ثانية
+    option.style.pointerEvents = 'none'; // يمنع الضغط على كل الخيارات بعد الحل
+    if (option.dataset.correct === "true") {
+      option.classList.add('correct');   // الخيار الصحيح أخضر
     }
   }
 
-  if (isCorrect) {
-    selected.classList.add('correct');
-  } else {
-    selected.classList.add('wrong');
+  if (!isCorrect) {
+    selected.classList.add('wrong');     // الخيار الخطأ أحمر
   }
 
-  rationale.style.display = 'block';
+  rationale.style.display = 'block';     // يظهر الـ rationale
 }
 </script>
 
