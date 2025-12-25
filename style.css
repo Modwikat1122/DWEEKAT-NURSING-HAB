@@ -1275,48 +1275,89 @@ img {
   box-shadow: 0 15px 30px rgba(13,110,253,0.55);
 }
 
-/* ===== QUIZ OVERLAY ===== */
-.quiz-overlay {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0,0,0,0.65);
-  display: none;
-  align-items: center;
-  justify-content: center;
-  z-index: 9999;
-}
-
-/* الكارد الكبير */
-.quiz-modal {
-  background: #fff;
-  width: 90%;
-  max-width: 900px;
-  border-radius: 20px;
-  padding: 35px;
-  position: relative;
-  animation: zoomIn 0.3s ease;
-}
-
-/* زر الإغلاق */
-.quiz-close {
-  position: absolute;
-  top: 20px;
-  right: 25px;
-  font-size: 26px;
+/* ===== NCLEX QUIZ BUTTON ===== */
+.hero-quiz-btn {
+  margin-top: 25px;
+  display: inline-block;
+  background: linear-gradient(135deg, #0077ff, #00c6ff);
+  color: #fff;
+  padding: 16px 40px;
+  border-radius: 50px;
+  font-weight: 800;
+  letter-spacing: 1px;
   cursor: pointer;
+  box-shadow: 0 10px 25px rgba(0,119,255,0.35);
+  transition: all 0.3s ease;
 }
 
-/* الحركة */
-@keyframes zoomIn {
-  from {
-    transform: scale(0.9);
-    opacity: 0;
-  }
-  to {
-    transform: scale(1);
-    opacity: 1;
-  }
+.hero-quiz-btn:hover {
+  transform: translateY(-4px) scale(1.03);
+  box-shadow: 0 15px 35px rgba(0,119,255,0.45);
+}
+
+.hero-quiz-btn:active {
+  transform: scale(0.96);
+}
+
+/* ===== QUIZ CARD ===== */
+.quiz-card {
+  background: #f9fafb;
+  border-radius: 20px;
+  padding: 30px;
+  margin: 40px auto;
+  max-width: 900px;
+  animation: fadeIn 0.4s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(15px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* ===== OPTIONS ===== */
+.quiz-options {
+  list-style: none;
+  padding: 0;
+  margin-top: 20px;
+}
+
+.quiz-options li {
+  background: #fff;
+  border: 2px solid #e5e7eb;
+  padding: 14px 18px;
+  border-radius: 14px;
+  margin-bottom: 12px;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  font-weight: 600;
+}
+
+.quiz-options li:hover {
+  background: #eef6ff;
+  border-color: #0077ff;
+}
+
+/* Correct & Wrong */
+.quiz-options li.correct {
+  background: #e6f9ee;
+  border-color: #22c55e;
+  color: #166534;
+}
+
+.quiz-options li.wrong {
+  background: #fdeaea;
+  border-color: #ef4444;
+  color: #7f1d1d;
+}
+
+/* ===== RATIONALE ===== */
+.quiz-rationale {
+  display: none;
+  margin-top: 20px;
+  background: #fff;
+  padding: 18px;
+  border-left: 6px solid #0077ff;
+  border-radius: 12px;
+  font-size: 15px;
+  line-height: 1.7;
 }
