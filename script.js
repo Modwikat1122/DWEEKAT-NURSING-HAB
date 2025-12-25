@@ -442,5 +442,34 @@ function toggleContent(id) {
     }
   });
 });
+document.addEventListener("DOMContentLoaded", function() {
+  document.querySelectorAll('.faq-question').forEach(question => {
+    question.addEventListener('click', () => {
+      const item = question.parentElement;
+      const answer = item.querySelector('.faq-answer');
+      const icon = question.querySelector('i');
+
+      // إغلاق باقي الأسئلة
+      document.querySelectorAll('.faq-item').forEach(faq => {
+        if (faq !== item) {
+          faq.classList.remove('active');
+          faq.querySelector('.faq-answer').style.maxHeight = null;
+          faq.querySelector('i').classList.remove('rotate');
+        }
+      });
+
+      // فتح / إغلاق السؤال الحالي
+      item.classList.toggle('active');
+
+      if (item.classList.contains('active')) {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+        icon.classList.add('rotate');
+      } else {
+        answer.style.maxHeight = null;
+        icon.classList.remove('rotate');
+      }
+    });
+  });
+});
 
 </script>
